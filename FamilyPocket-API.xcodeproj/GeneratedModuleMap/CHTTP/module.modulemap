@@ -1,4 +1,4 @@
 module CHTTP {
-    umbrella "/Users/isapozhnik/work/backend/FamilyPocket-API/FamilyPocket-API/.build/checkouts/engine.git-3311994267206676365/Sources/CHTTP/include"
+    umbrella "/Users/isapozhnik/work/backend/FamilyPocket-API/.build/checkouts/engine.git-3311994267206676365/Sources/CHTTP/include"
     export *
 }

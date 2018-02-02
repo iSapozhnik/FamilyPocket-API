@@ -1,4 +1,4 @@
 module CSQLite {
-    umbrella "/Users/isapozhnik/work/backend/FamilyPocket-API/FamilyPocket-API/.build/checkouts/sqlite.git--8232814251736334455/Sources/CSQLite/include"
+    umbrella "/Users/isapozhnik/work/backend/FamilyPocket-API/.build/checkouts/sqlite.git--8232814251736334455/Sources/CSQLite/include"
     export *
 }
