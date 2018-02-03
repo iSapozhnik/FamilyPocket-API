@@ -65,3 +65,13 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+### Vapor ###
+Config/secrets
+
+### Vapor Patch ###
+Packages
+.build
+xcuserdata
+*.xcodeproj
+DerivedData/
