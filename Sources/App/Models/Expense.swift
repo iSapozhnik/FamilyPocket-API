@@ -8,34 +8,52 @@
 import Vapor
 import FluentProvider
 import HTTP
+import Foundation
 
 final class Expense: Model {
     let storage = Storage()
     
     var categoryId: String
     var expense: Double
+    var date: Date
     
     struct Keys {
         static let id = "id"
         static let categoryId = "categoryId"
         static let expense = "expense"
+        static let date = "date"
     }
     
-    init(categoryId: String, expense: Double) {
+    init(categoryId: String, expense: Double, date: Date) {
         self.categoryId = categoryId
         self.expense = expense
+        self.date = date
     }
     
     init(row: Row) throws {
         categoryId = try row.get(Expense.Keys.categoryId)
         expense = try row.get(Expense.Keys.expense)
+        date = try row.get(Expense.Keys.date)
     }
     
     func makeRow() throws -> Row {
         var row = Row()
         try row.set(Expense.Keys.categoryId, categoryId)
         try row.set(Expense.Keys.expense, expense)
+        try row.set(Expense.Keys.date, Expense.dateFormatter.string(from: date))
         return row
+    }
+    
+    private static var _df: DateFormatter?
+    private static var dateFormatter: DateFormatter {
+        if let df = _df {
+            return df
+        }
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        _df = df
+        return df
     }
 }
 
@@ -43,8 +61,10 @@ extension Expense: Preparation {
     static func prepare(_ database: Database) throws {
         try database.create(self) { builder in
             builder.id()
-            builder.string(Expense.Keys.categoryId)
             builder.string(Expense.Keys.expense)
+            builder.string(Expense.Keys.categoryId)
+            builder.date(Expense.Keys.date)
+//            builder.custom(Expense.Keys.date, type: "TIMESTAMP")
         }
     }
     
@@ -57,7 +77,8 @@ extension Expense: JSONConvertible {
     convenience init(json: JSON) throws {
         self.init(
             categoryId: try json.get(Expense.Keys.categoryId),
-            expense: try json.get(Expense.Keys.expense)
+            expense: try json.get(Expense.Keys.expense),
+            date: Date()
         )
     }
     
@@ -66,9 +87,30 @@ extension Expense: JSONConvertible {
         try json.set(Expense.Keys.id, id)
         try json.set(Expense.Keys.categoryId, categoryId)
         try json.set(Expense.Keys.expense, expense)
+        try json.set(Expense.Keys.date, Expense.dateFormatter.string(from: date))
         return json
     }
 }
 
 extension Expense: ResponseRepresentable { }
 
+extension Expense {
+    static func dateFromString(_ dateAsString: String?) -> Date! {
+        guard let string = dateAsString else { return nil }
+        
+        let dateformatter = DateFormatter()
+        dateformatter.timeZone = TimeZone(identifier: "France/Paris")
+        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
+        let val = dateformatter.date(from: string)
+        return val!
+    }
+    
+    static func dateToString(_ dateIn: Date?) -> String! {
+        guard let date = dateIn else { return nil }
+        let dateformatter = DateFormatter()
+        dateformatter.timeZone = TimeZone(identifier: "France/Paris")
+        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
+        let val = dateformatter.string(from: date)
+        return val
+    }
+}
