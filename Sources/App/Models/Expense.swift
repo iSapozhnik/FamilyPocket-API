@@ -64,7 +64,6 @@ extension Expense: Preparation {
             builder.string(Expense.Keys.expense)
             builder.string(Expense.Keys.categoryId)
             builder.date(Expense.Keys.date)
-//            builder.custom(Expense.Keys.date, type: "TIMESTAMP")
         }
     }
     
@@ -93,24 +92,3 @@ extension Expense: JSONConvertible {
 }
 
 extension Expense: ResponseRepresentable { }
-
-extension Expense {
-    static func dateFromString(_ dateAsString: String?) -> Date! {
-        guard let string = dateAsString else { return nil }
-        
-        let dateformatter = DateFormatter()
-        dateformatter.timeZone = TimeZone(identifier: "France/Paris")
-        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
-        let val = dateformatter.date(from: string)
-        return val!
-    }
-    
-    static func dateToString(_ dateIn: Date?) -> String! {
-        guard let date = dateIn else { return nil }
-        let dateformatter = DateFormatter()
-        dateformatter.timeZone = TimeZone(identifier: "France/Paris")
-        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
-        let val = dateformatter.string(from: date)
-        return val
-    }
-}
