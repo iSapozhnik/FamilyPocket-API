@@ -1,5 +1,6 @@
 import FluentProvider
 import PostgreSQLProvider
+import LeafProvider
 
 extension Config {
     public func setup() throws {
@@ -15,6 +16,7 @@ extension Config {
     private func setupProviders() throws {
         try addProvider(FluentProvider.Provider.self)
         try addProvider(PostgreSQLProvider.Provider.self)
+        try addProvider(LeafProvider.Provider.self)
     }
     
     /// Add all models that should have their
@@ -22,5 +24,7 @@ extension Config {
     private func setupPreparations() throws {
         preparations.append(Post.self)
         preparations.append(Expense.self)
+        preparations.append(User.self)
+        preparations.append(Token.self)
     }
 }

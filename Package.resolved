@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "Auth",
+        "repositoryURL": "https://github.com/vapor/auth.git",
+        "state": {
+          "branch": null,
+          "revision": "b8a0d6d7ac141831c999bf2458408dc2ec2edb39",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "AuthProvider",
+        "repositoryURL": "https://github.com/vapor/auth-provider.git",
+        "state": {
+          "branch": null,
+          "revision": "c8a89d5f32873a7ec6037e2c78a192526c496618",
+          "version": "1.2.0"
+        }
+      },
+      {
         "package": "BCrypt",
         "repositoryURL": "https://github.com/vapor/bcrypt.git",
         "state": {
@@ -107,6 +125,24 @@
           "branch": null,
           "revision": "6c7ce40d30b322d45cc49a8f1d742609d3228eb7",
           "version": "2.2.2"
+        }
+      },
+      {
+        "package": "Leaf",
+        "repositoryURL": "https://github.com/vapor/leaf.git",
+        "state": {
+          "branch": null,
+          "revision": "84d8af322158b71284c0ebd513f1c18474837d40",
+          "version": "2.0.2"
+        }
+      },
+      {
+        "package": "LeafProvider",
+        "repositoryURL": "https://github.com/vapor/leaf-provider.git",
+        "state": {
+          "branch": null,
+          "revision": "0cbeb0db6fc955c2cf12a0293c1e54f16cbb1ca3",
+          "version": "1.1.0"
         }
       },
       {

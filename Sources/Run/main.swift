@@ -1,5 +1,7 @@
 import App
 import PostgreSQLProvider
+import AuthProvider
+import FluentProvider
 
 /// We have isolated all of our App's logic into
 /// the App module because it makes our app
@@ -17,6 +19,7 @@ import PostgreSQLProvider
 ///
 /// .run() runs the Droplet's commands, 
 /// if no command is given, it will default to "serve"
+
 let config = try Config()
 //try config.addProvider(PostgreSQLProvider.Provider.self)
 try config.setup()
