@@ -22,16 +22,6 @@ class UserController {
         self.drop = droplet
     }
     
-    func test(_ req: Request) throws -> ResponseRepresentable  {
-        guard
-            let password = req.formURLEncoded?[Keys.password]?.string, !password.isEmpty,
-            let email = req.formURLEncoded?[Keys.email]?.string, !email.isEmpty else {
-                return Response(status: .badRequest)
-        }
-        
-        return Response(status: .ok)
-    }
-    
     func loginUser(_ req: Request) throws -> ResponseRepresentable  {
         guard let password = req.formURLEncoded?[Keys.password]?.string, !password.isEmpty else {
             throw Abort(.badRequest, reason: "Password is missing!")
