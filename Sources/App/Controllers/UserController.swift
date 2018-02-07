@@ -43,7 +43,7 @@ final class UserController {
             throw Abort(.badRequest, reason: "A user with such email not found.")
         }
         
-        guard try git drop.hash.make(password.makeBytes()).makeString() == user.password else {
+        guard try drop.hash.make(password.makeBytes()).makeString() == user.password else {
             throw Abort(.badRequest, reason: "Incorrect user password")
         }
         
