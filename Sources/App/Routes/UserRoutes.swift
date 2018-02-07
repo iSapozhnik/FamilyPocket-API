@@ -27,7 +27,6 @@ final class UserRoutes {
         // API
         droplet.post(apiPath + Endpoints.register, handler: userController.createUser)
         droplet.post(apiPath + Endpoints.login, handler: userController.loginUser)
-        droplet.post("test", handler: userController.test)
         
         // Protected
         protectedRouter.get(apiPath + Endpoints.users, handler: userController.users)
