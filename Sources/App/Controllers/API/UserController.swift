@@ -38,9 +38,16 @@ class UserController {
             throw Abort(.badRequest, reason: "Incorrect user password")
         }
         
-        let token = try Token.generate(for: user)
+        guard let token = try Token.makeQuery().filter("user_id", user.id).first() else {
+            let token = try Token.generate(for: user)
+            try token.save()
+            return token
+        }
+        
+        token.token = try Token.randomToken()
         try token.save()
         return token
+        
     }
     
     func createUser(_ req: Request) throws -> ResponseRepresentable  {

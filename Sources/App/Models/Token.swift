@@ -10,10 +10,15 @@ import FluentProvider
 import Crypto
 
 final class Token: Model {
+    struct Keys {
+        static let token = "token"
+        static let userId = "userId"
+    }
+    
     let storage = Storage()
     
     /// The actual token
-    let token: String
+    var token: String
     
     /// The identifier of the user to which the token belongs
     let userId: Identifier
@@ -42,11 +47,16 @@ final class Token: Model {
 extension Token {
     /// Generates a new token for the supplied User.
     static func generate(for user: User) throws -> Token {
+        let token = try randomToken()
+        // create and return the new token
+        return try Token(string: token, user: user)
+    }
+    
+    static func randomToken() throws -> String {
         // generate 128 random bits using OpenSSL
         let random = try Crypto.Random.bytes(count: 16)
-        
-        // create and return the new token
-        return try Token(string: random.base64Encoded.makeString(), user: user)
+        let token = random.base64Encoded.makeString()
+        return token
     }
 }
 
