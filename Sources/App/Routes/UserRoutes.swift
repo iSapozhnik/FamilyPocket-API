@@ -16,10 +16,13 @@ final class UserRoutes {
     
     class func setupRoutes(droplet: Droplet, protectedRouter: RouteBuilder, apiPath: String) {
         let userController = UserController(droplet)
+        let userViewController = UserViewController(droplet)
 
         // Web
-        droplet.post(Endpoints.register, handler: userController.createUser)
-        droplet.post(Endpoints.login, handler: userController.loginUser)
+        droplet.get(Endpoints.register, handler: userViewController.register)
+        droplet.get(Endpoints.login, handler: userViewController.login)
+        droplet.post(Endpoints.register, handler: userViewController.createUser)
+        droplet.post(Endpoints.login, handler: userViewController.loginUser)
 
         // API
         droplet.post(apiPath + Endpoints.register, handler: userController.createUser)

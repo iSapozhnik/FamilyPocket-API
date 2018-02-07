@@ -39,17 +39,7 @@ extension Droplet {
         try authed.resource(apiPath+"posts", PostController.self)
         try authed.resource(apiPath+"expenses", ExpenseController.self)
         
-        get { req in
-            return try self.view.make("login")
-        }
-        
-        get("register") { req in
-            return try self.view.make("register")
-        }
-        
-        get("login") { req in
-            return try self.view.make("login")
-        }
+        get("", handler: MainViewController(self).index)
     
         UserRoutes.setupRoutes(droplet: self, protectedRouter: authed, apiPath: apiPath)
         

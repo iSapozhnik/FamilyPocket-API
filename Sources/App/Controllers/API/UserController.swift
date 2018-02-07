@@ -9,7 +9,7 @@ import Foundation
 import Vapor
 import HTTP
 
-final class UserController {
+class UserController {
     struct Keys {
         static let email = "email"
         static let password = "password"
@@ -33,10 +33,11 @@ final class UserController {
     }
     
     func loginUser(_ req: Request) throws -> ResponseRepresentable  {
-        guard
-            let password = req.formURLEncoded?[Keys.password]?.string, !password.isEmpty,
-            let email = req.formURLEncoded?[Keys.email]?.string, !email.isEmpty else {
-                return Response(status: .badRequest)
+        guard let password = req.formURLEncoded?[Keys.password]?.string, !password.isEmpty else {
+            throw Abort(.badRequest, reason: "Password is missing!")
+        }
+        guard let email = req.formURLEncoded?[Keys.email]?.string, !email.isEmpty else {
+            throw Abort(.badRequest, reason: "Email is missing!")
         }
         
         guard let user = try User.makeQuery().filter(Keys.email, email).first() else {
