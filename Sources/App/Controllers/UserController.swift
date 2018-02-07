@@ -43,7 +43,7 @@ final class UserController {
             throw Abort(.badRequest, reason: "A user with such email not found.")
         }
         
-        guard password == user.password else {
+        guard try git drop.hash.make(password.makeBytes()).makeString() == user.password else {
             throw Abort(.badRequest, reason: "Incorrect user password")
         }
         
@@ -70,7 +70,12 @@ final class UserController {
         }
         user.password = try drop.hash.make(password.makeBytes()).makeString()
         try user.save()
-        return user
+        
+        var json = JSON()
+        try json.set("id", user.id)
+        try json.set("name",user.name)
+        try json.set("email",user.email)
+        return json
     }
     
     func users(_ req: Request) throws -> ResponseRepresentable {
