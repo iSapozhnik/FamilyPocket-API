@@ -73,7 +73,7 @@ class UserController {
         
         do {
             try Mailgun.sendTo(user.email, name: user.name, droplet: drop)
-        } catch { error
+        } catch {
             print("Mailgun: \(error)")
         }
         
