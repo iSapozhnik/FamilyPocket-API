@@ -8,6 +8,8 @@
 import Foundation
 import Vapor
 import HTTP
+import SMTP
+import Transport
 
 class UserController {
     struct Keys {
@@ -69,6 +71,12 @@ class UserController {
         user.password = try drop.hash.make(password.makeBytes()).makeString()
         try user.save()
         
+        do {
+            try Mailgun.sendTo(user.email, name: user.name, droplet: drop)
+        } catch { error
+            print("Mailgun: \(error)")
+        }
+        
         var json = JSON()
         try json.set("id", user.id)
         try json.set("name",user.name)
@@ -81,7 +89,6 @@ class UserController {
     }
     
     func email(_ req: Request) throws -> ResponseRepresentable {
-        EmailSender().send()
         return Response(status: .ok)
     }
 }

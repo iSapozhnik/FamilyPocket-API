@@ -41,7 +41,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		FF457426202CA74900D9C99F /* EmailSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF457425202CA74900D9C99F /* EmailSender.swift */; };
+		FF457426202CA74900D9C99F /* Mailgun.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF457425202CA74900D9C99F /* Mailgun.swift */; };
 		FFC44179202A7B18001D88F7 /* UserRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC44178202A7B18001D88F7 /* UserRoutes.swift */; };
 		FFC4417B202A7E6E001D88F7 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4417A202A7E6E001D88F7 /* Token.swift */; };
 		FFC44182202B2DBE001D88F7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4417F202B2DBE001D88F7 /* UserViewController.swift */; };
@@ -5010,7 +5010,7 @@
 		"Engine::SMTP::Product" /* SMTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::URI::Product" /* URI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::WebSockets::Product" /* WebSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF457425202CA74900D9C99F /* EmailSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSender.swift; sourceTree = "<group>"; };
+		FF457425202CA74900D9C99F /* Mailgun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mailgun.swift; sourceTree = "<group>"; };
 		FFC44178202A7B18001D88F7 /* UserRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoutes.swift; sourceTree = "<group>"; };
 		FFC4417A202A7E6E001D88F7 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FFC4417F202B2DBE001D88F7 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -8678,7 +8678,7 @@
 				OBJ_12 /* Models */,
 				OBJ_16 /* Routes */,
 				OBJ_18 /* Setup */,
-				FF457425202CA74900D9C99F /* EmailSender.swift */,
+				FF457425202CA74900D9C99F /* Mailgun.swift */,
 			);
 			name = App;
 			path = Sources/App;
@@ -10745,7 +10745,7 @@
 				OBJ_1304 /* Post.swift in Sources */,
 				FFC44183202B2DBE001D88F7 /* UserController.swift in Sources */,
 				OBJ_1305 /* User.swift in Sources */,
-				FF457426202CA74900D9C99F /* EmailSender.swift in Sources */,
+				FF457426202CA74900D9C99F /* Mailgun.swift in Sources */,
 				FFC4417B202A7E6E001D88F7 /* Token.swift in Sources */,
 				OBJ_1306 /* Routes.swift in Sources */,
 				OBJ_1307 /* Config+Setup.swift in Sources */,
