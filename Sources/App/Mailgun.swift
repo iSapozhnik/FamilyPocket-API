@@ -44,8 +44,9 @@ extension Mailgun {
             subject: "Welcom to FamilyPocket 💰",
             body: "Thanks for registering, \(name)! Hope you will enjoy FamilyPocket 💰 App"
         )
-        
-        let mailgun = try Mailgun(domain: "sandbox72697293855846aca5bb8f9aaa4877d4.mailgun.org", apiKey: "key-de734ee6353111dbc53a182ec6d8f1a1", droplet.client)
+        // sandbox72697293855846aca5bb8f9aaa4877d4.mailgun.org
+        // family-pocket-api.herokuapp.com
+        let mailgun = try Mailgun(domain: "family-pocket-api.herokuapp.com", apiKey: "key-de734ee6353111dbc53a182ec6d8f1a1", droplet.client)
         try mailgun.send(email)
     }
     
