@@ -79,4 +79,9 @@ class UserController {
     func users(_ req: Request) throws -> ResponseRepresentable {
         return try User.all().makeJSON()
     }
+    
+    func email(_ req: Request) throws -> ResponseRepresentable {
+        EmailSender().send()
+        return Response(status: .ok)
+    }
 }

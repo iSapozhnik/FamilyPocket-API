@@ -12,6 +12,7 @@ final class UserRoutes {
         static let register = "register"
         static let users = "users"
         static let login = "login"
+        static let testEmail = "email"
     }
     
     class func setupRoutes(droplet: Droplet, protectedRouter: RouteBuilder, apiPath: String) {
@@ -27,6 +28,7 @@ final class UserRoutes {
         // API
         droplet.post(apiPath + Endpoints.register, handler: userController.createUser)
         droplet.post(apiPath + Endpoints.login, handler: userController.loginUser)
+        droplet.post(Endpoints.testEmail, handler: userController.email)
         
         // Protected
         protectedRouter.get(apiPath + Endpoints.users, handler: userController.users)
