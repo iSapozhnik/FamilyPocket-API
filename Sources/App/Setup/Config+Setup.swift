@@ -28,5 +28,6 @@ extension Config {
         preparations.append(Expense.self)
         preparations.append(User.self)
         preparations.append(Token.self)
+        preparations.append(Category.self)
     }
 }

@@ -11,9 +11,9 @@
         </div>
         <select class="custom-select" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            #loop(categories, "category") {
+                <option value="1">#(category)</option>
+            }
         </select>
         <input type="text" class="form-control" placeholder="Amount" aria-label="Amount" aria-describedby="basic-addon2">
         <div class="input-group-append">
@@ -41,7 +41,7 @@
         </tbody>
     </table>
     <nav aria-label="...">
-        <ul class="pagination pagination-lg justify-content-center">
+        <ul class="pagination pagination-sm justify-content-center">
             #loop(pages, "page") {
                 <li class="page-item #(page.disabled)"><a class="page-link" href="#(page.link)">#(page.name)</a></li>
             }

@@ -41,6 +41,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		FF96DDFD202F982C00253560 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96DDFC202F982C00253560 /* Category.swift */; };
 		OBJ_1000 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* Package.swift */; };
 		OBJ_1006 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_161 /* Package.swift */; };
 		OBJ_1012 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* Package.swift */; };
@@ -5451,6 +5452,7 @@
 		"Engine::SMTP::Product" /* SMTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::URI::Product" /* URI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::WebSockets::Product" /* WebSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF96DDFC202F982C00253560 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		"FamilyPocket-API::App::Product" /* App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"FamilyPocket-API::AppTests::Product" /* AppTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"FamilyPocket-API::Run::Product" /* Run */ = {isa = PBXFileReference; lastKnownFileType = text; path = Run; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7366,6 +7368,7 @@
 				OBJ_21 /* Post.swift */,
 				OBJ_22 /* Token.swift */,
 				OBJ_23 /* User.swift */,
+				FF96DDFC202F982C00253560 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -11491,6 +11494,7 @@
 				OBJ_1363 /* Post.swift in Sources */,
 				OBJ_1364 /* Token.swift in Sources */,
 				OBJ_1365 /* User.swift in Sources */,
+				FF96DDFD202F982C00253560 /* Category.swift in Sources */,
 				OBJ_1366 /* Routes.swift in Sources */,
 				OBJ_1367 /* UserRoutes.swift in Sources */,
 				OBJ_1368 /* Config+Setup.swift in Sources */,

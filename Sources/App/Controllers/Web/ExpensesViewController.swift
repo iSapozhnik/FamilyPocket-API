@@ -47,9 +47,6 @@ final class ExpensesViewController {
     }()
     
     func expenses(_ req: Request) throws -> ResponseRepresentable  {
-
-//        let posts = try Expense.paginator(10, request: req)
-        
         let expenses = try Expense
             .makeQuery()
             .sort("date", .descending)
@@ -61,6 +58,9 @@ final class ExpensesViewController {
     
     private func expensesNode(data: [Expense], paginator: Paginator<Expense>) throws -> [String: Node] {
         var tableNode: [String: Node] = [:]
+        
+        tableNode["categories"] = try categoriesNode()
+        
         let tableHeader = ExpensesHeader.cases()
         tableNode["tableHeader"] = try tableHeader.map { $0.rawValue }.makeNode(in: nil)
         var rows = [[String: Node]]()
@@ -68,7 +68,11 @@ final class ExpensesViewController {
         try data.forEach { expense in
             var row: [String: Node] = [:]
             row["id"] = try expense.id.makeNode(in: nil)
-            row["category"] = expense.categoryId.makeNode(in: nil)
+            do {
+                row["category"] = try Category.find(expense.categoryId)?.name.makeNode(in: nil)
+            } catch {
+                row["category"] = "-".makeNode(in: nil)
+            }
             let formattedAmount = ExpensesViewController.priceFormatter.string(for: expense.expense)
             row["amount"] = try formattedAmount.makeNode(in: nil)
             row["date"] = ExpensesViewController.dateFormatter.string(from: expense.date).makeNode(in: nil)
@@ -77,6 +81,11 @@ final class ExpensesViewController {
         
         tableNode["tableRows"] = try rows.makeNode(in: nil)
         
+        tableNode["pages"] = try paginatorNode(paginator: paginator)
+        return tableNode
+    }
+    
+    private func paginatorNode(paginator: Paginator<Expense>) throws -> Node {
         var pages = [[String: Node]]()
         for i in 1..<paginator.totalPages! + 1 {
             var page: [String: Node] = [:]
@@ -85,8 +94,14 @@ final class ExpensesViewController {
             page["link"] = ("?page=\(i)").makeNode(in: nil)
             pages.append(page)
         }
-        
-        tableNode["pages"] = try pages.makeNode(in: nil)
-        return tableNode
+        return try pages.makeNode(in: nil)
+    }
+    
+    private func categoriesNode() throws -> Node {
+        let categories = try Category
+            .makeQuery()
+            .sort("name", .ascending)
+            .all()
+        return try categories.map { $0.name }.makeNode(in: nil)
     }
 }
