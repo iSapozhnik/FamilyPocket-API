@@ -10,6 +10,7 @@ import Vapor
 import HTTP
 import SMTP
 import Transport
+import Paginator
 
 enum ExpensesHeader: String, EnumCollection {
     case id = "id"
@@ -47,15 +48,18 @@ final class ExpensesViewController {
     
     func expenses(_ req: Request) throws -> ResponseRepresentable  {
 
+//        let posts = try Expense.paginator(10, request: req)
+        
         let expenses = try Expense
             .makeQuery()
             .sort("date", .descending)
             .all()
+        let paginator = try expenses.paginator(10, request: req)
 
-        return try drop.view.make(Keys.expenses, expensesNode(data: expenses))
+        return try drop.view.make(Keys.expenses, expensesNode(data: paginator.data!, paginator: paginator))
     }
     
-    private func expensesNode(data: [Expense]) throws -> [String: Node] {
+    private func expensesNode(data: [Expense], paginator: Paginator<Expense>) throws -> [String: Node] {
         var tableNode: [String: Node] = [:]
         let tableHeader = ExpensesHeader.cases()
         tableNode["tableHeader"] = try tableHeader.map { $0.rawValue }.makeNode(in: nil)
@@ -72,6 +76,17 @@ final class ExpensesViewController {
         }
         
         tableNode["tableRows"] = try rows.makeNode(in: nil)
+        
+        var pages = [[String: Node]]()
+        for i in 1..<paginator.totalPages! + 1 {
+            var page: [String: Node] = [:]
+            page["name"] = i.makeNode(in: nil)
+            page["disabled"] = i == paginator.currentPage ? "disabled" : ""
+            page["link"] = ("?page=\(i)").makeNode(in: nil)
+            pages.append(page)
+        }
+        
+        tableNode["pages"] = try pages.makeNode(in: nil)
         return tableNode
     }
 }

@@ -10,7 +10,7 @@ import FluentProvider
 import HTTP
 import Foundation
 
-final class Expense: Model {
+final class Expense: Model, NodeRepresentable {
     let storage = Storage()
     
     var categoryId: String
