@@ -1,0 +1,26 @@
+#extend("base")
+
+#export("title") { FamilyPocket 💰 }
+
+#export("content") {
+    <h1>Expenses</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                #loop(tableHeader, "header") { <th>#(header)</th> }
+            </tr>
+        </thead>
+        <tbody>
+            
+            #loop(tableRows, "row") {
+                <tr>
+                    <th scope="row">#(row.id)</th>
+                    <td>#(row.category)</td>
+                    <td>#(row.amount)</td>
+                    <td>#(row.date)</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+}

@@ -39,6 +39,9 @@ extension Droplet {
         try authed.resource(apiPath+"posts", PostController.self)
         try authed.resource(apiPath+"expenses", ExpenseController.self)
         
+        let expensesViewcontroller = ExpensesViewController(self)
+        get("expenses", handler: expensesViewcontroller.expenses)
+        
         get("", handler: MainViewController(self).index)
     
         UserRoutes.setupRoutes(droplet: self, protectedRouter: authed, apiPath: apiPath)

@@ -42,6 +42,8 @@
 
 /* Begin PBXBuildFile section */
 		FF457426202CA74900D9C99F /* Mailgun.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF457425202CA74900D9C99F /* Mailgun.swift */; };
+		FF96D562202F357E00253560 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96D561202F357E00253560 /* ExpensesViewController.swift */; };
+		FF96D56B202F443800253560 /* Emun.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96D56A202F443800253560 /* Emun.swift */; };
 		FFC44179202A7B18001D88F7 /* UserRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC44178202A7B18001D88F7 /* UserRoutes.swift */; };
 		FFC4417B202A7E6E001D88F7 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4417A202A7E6E001D88F7 /* Token.swift */; };
 		FFC44182202B2DBE001D88F7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC4417F202B2DBE001D88F7 /* UserViewController.swift */; };
@@ -5011,6 +5013,8 @@
 		"Engine::URI::Product" /* URI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::WebSockets::Product" /* WebSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF457425202CA74900D9C99F /* Mailgun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mailgun.swift; sourceTree = "<group>"; };
+		FF96D561202F357E00253560 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		FF96D56A202F443800253560 /* Emun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emun.swift; sourceTree = "<group>"; };
 		FFC44178202A7B18001D88F7 /* UserRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoutes.swift; sourceTree = "<group>"; };
 		FFC4417A202A7E6E001D88F7 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FFC4417F202B2DBE001D88F7 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -6561,11 +6565,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF96D568202F443800253560 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FF96D569202F443800253560 /* Extensions */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		FF96D569202F443800253560 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF96D56A202F443800253560 /* Emun.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FFC4417E202B2DBE001D88F7 /* Web */ = {
 			isa = PBXGroup;
 			children = (
 				FFC4417F202B2DBE001D88F7 /* UserViewController.swift */,
 				FFC44184202B2EDE001D88F7 /* MainViewController.swift */,
+				FF96D561202F357E00253560 /* ExpensesViewController.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -8677,6 +8698,7 @@
 				OBJ_9 /* Controllers */,
 				OBJ_12 /* Models */,
 				OBJ_16 /* Routes */,
+				FF96D568202F443800253560 /* Utility */,
 				OBJ_18 /* Setup */,
 				FF457425202CA74900D9C99F /* Mailgun.swift */,
 			);
@@ -10744,7 +10766,9 @@
 				FFC44179202A7B18001D88F7 /* UserRoutes.swift in Sources */,
 				OBJ_1304 /* Post.swift in Sources */,
 				FFC44183202B2DBE001D88F7 /* UserController.swift in Sources */,
+				FF96D562202F357E00253560 /* ExpensesViewController.swift in Sources */,
 				OBJ_1305 /* User.swift in Sources */,
+				FF96D56B202F443800253560 /* Emun.swift in Sources */,
 				FF457426202CA74900D9C99F /* Mailgun.swift in Sources */,
 				FFC4417B202A7E6E001D88F7 /* Token.swift in Sources */,
 				OBJ_1306 /* Routes.swift in Sources */,
