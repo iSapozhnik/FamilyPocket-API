@@ -46,14 +46,22 @@ final class ExpensesViewController {
     }()
     
     func expenses(_ req: Request) throws -> ResponseRepresentable  {
+
+        let expenses = try Expense
+            .makeQuery()
+            .sort("date", .descending)
+            .all()
+
+        return try drop.view.make(Keys.expenses, expensesNode(data: expenses))
+    }
+    
+    private func expensesNode(data: [Expense]) throws -> [String: Node] {
         var tableNode: [String: Node] = [:]
         let tableHeader = ExpensesHeader.cases()
         tableNode["tableHeader"] = try tableHeader.map { $0.rawValue }.makeNode(in: nil)
-        
-        let expenses = try Expense.all()
         var rows = [[String: Node]]()
-
-        try expenses.forEach { expense in
+        
+        try data.forEach { expense in
             var row: [String: Node] = [:]
             row["id"] = try expense.id.makeNode(in: nil)
             row["category"] = expense.categoryId.makeNode(in: nil)
@@ -64,7 +72,6 @@ final class ExpensesViewController {
         }
         
         tableNode["tableRows"] = try rows.makeNode(in: nil)
-        
-        return try drop.view.make(Keys.expenses, tableNode)
+        return tableNode
     }
 }
