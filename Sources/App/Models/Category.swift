@@ -54,20 +54,30 @@ extension Category: Preparation {
         
         guard try Category.all().count == 0 else { return }
         
-        let fileName = "categories.json"
-        let path = Config.workingDirectory() + "ImportData/" + fileName
+        try Category(name: "Internet", iconName: "Globe-80.png").save()
+        try Category(name: "Games", iconName: "Controller-80.png").save()
+        try Category(name: "Gym/Sport", iconName: "Barbell-80.png").save()
+        try Category(name: "Shopping", iconName: "Shopping-Cart-80.png").save()
+        try Category(name: "Cell Phone", iconName: "Cell-Phone-80.png").save()
+        try Category(name: "Food", iconName: "Ingredients-80.png").save()
+        try Category(name: "Transport", iconName: "Shuttle-80.pn").save()
+        try Category(name: "Restaurants", iconName: "Food-80.png").save()
+
         
-        if FileManager.default.fileExists(atPath: path) {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-            
-            if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let categories = jsonResult["categories"] as? [Dictionary<String, Any>] {
-    
-                try categories.filter { $0["name"] != nil }.forEach {
-                    try Category(name: $0["name"] as! String, iconName: $0["iconName"] as! String).save()
-                }
-            }
-        }
+//        let fileName = "categories.json"
+//        let path = Config.workingDirectory() + "ImportData/" + fileName
+//
+//        if FileManager.default.fileExists(atPath: path) {
+//            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+//            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+//
+//            if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let categories = jsonResult["categories"] as? [Dictionary<String, Any>] {
+//
+//                try categories.filter { $0["name"] != nil }.forEach {
+//                    try Category(name: $0["name"] as! String, iconName: $0["iconName"] as! String).save()
+//                }
+//            }
+//        }
     }
 }
 
