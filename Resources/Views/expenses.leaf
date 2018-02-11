@@ -31,7 +31,8 @@
             
             #loop(tableRows, "row") {
                 <tr>
-                    <th scope="row">#(row.id)</th>
+                    
+                    <td><img src="../assets/icons/#(row.iconName)" srcset="../assets/icons/#(row.iconName) 2x"></td>
                     <td>#(row.category)</td>
                     <td>#(row.amount)</td>
                     <td>#(row.date)</td>

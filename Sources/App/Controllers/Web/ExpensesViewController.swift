@@ -13,7 +13,8 @@ import Transport
 import Paginator
 
 enum ExpensesHeader: String, EnumCollection {
-    case id = "id"
+//    case id = "id"
+    case icon = "Icon"
     case category = "Category"
     case amount = "Amount"
     case date = "Date"
@@ -69,8 +70,10 @@ final class ExpensesViewController {
             var row: [String: Node] = [:]
             row["id"] = try expense.id.makeNode(in: nil)
             do {
+                row["iconName"] = try Category.find(expense.categoryId)?.iconName.makeNode(in: nil)
                 row["category"] = try Category.find(expense.categoryId)?.name.makeNode(in: nil)
             } catch {
+                row["iconName"] = "Picture-80.png".makeNode(in: nil)
                 row["category"] = "-".makeNode(in: nil)
             }
             let formattedAmount = ExpensesViewController.priceFormatter.string(for: expense.expense)

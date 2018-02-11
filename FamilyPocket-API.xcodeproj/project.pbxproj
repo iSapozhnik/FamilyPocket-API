@@ -5453,6 +5453,7 @@
 		"Engine::URI::Product" /* URI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Engine::WebSockets::Product" /* WebSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF96DDFC202F982C00253560 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FF96DE0A202FAEC400253560 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		"FamilyPocket-API::App::Product" /* App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"FamilyPocket-API::AppTests::Product" /* AppTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"FamilyPocket-API::Run::Product" /* Run */ = {isa = PBXFileReference; lastKnownFileType = text; path = Run; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7097,6 +7098,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF96DE09202FAEC400253560 /* ImportData */ = {
+			isa = PBXGroup;
+			children = (
+				FF96DE0A202FAEC400253560 /* categories.json */,
+			);
+			path = ImportData;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -9164,6 +9173,7 @@
 		OBJ_8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FF96DE09202FAEC400253560 /* ImportData */,
 				OBJ_9 /* Controllers */,
 				OBJ_18 /* Mailgun.swift */,
 				OBJ_19 /* Models */,
@@ -10012,6 +10022,7 @@
 			buildPhases = (
 				OBJ_1354 /* Sources */,
 				OBJ_1371 /* Frameworks */,
+				FF96DE02202FAD9B00253560 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -10131,6 +10142,7 @@
 			buildPhases = (
 				OBJ_1119 /* Sources */,
 				OBJ_1121 /* Frameworks */,
+				FF96DE04202FADFA00253560 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -11307,6 +11319,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF96DE02202FAD9B00253560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF96DE04202FADFA00253560 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_1005 /* Sources */ = {
