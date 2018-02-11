@@ -42,6 +42,8 @@
 
 /* Begin PBXBuildFile section */
 		FF96DDFD202F982C00253560 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96DDFC202F982C00253560 /* Category.swift */; };
+		FF96DE10202FD2F600253560 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96DE0F202FD2F600253560 /* FeaturesViewController.swift */; };
+		FF96DE12202FD44F00253560 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96DE11202FD44F00253560 /* SupportViewController.swift */; };
 		OBJ_1000 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* Package.swift */; };
 		OBJ_1006 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_161 /* Package.swift */; };
 		OBJ_1012 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* Package.swift */; };
@@ -5454,6 +5456,8 @@
 		"Engine::WebSockets::Product" /* WebSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF96DDFC202F982C00253560 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FF96DE0A202FAEC400253560 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		FF96DE0F202FD2F600253560 /* FeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewController.swift; sourceTree = "<group>"; };
+		FF96DE11202FD44F00253560 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		"FamilyPocket-API::App::Product" /* App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"FamilyPocket-API::AppTests::Product" /* AppTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"FamilyPocket-API::Run::Product" /* Run */ = {isa = PBXFileReference; lastKnownFileType = text; path = Run; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7214,6 +7218,8 @@
 				OBJ_15 /* ExpensesViewController.swift */,
 				OBJ_16 /* MainViewController.swift */,
 				OBJ_17 /* UserViewController.swift */,
+				FF96DE0F202FD2F600253560 /* FeaturesViewController.swift */,
+				FF96DE11202FD44F00253560 /* SupportViewController.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -11515,6 +11521,7 @@
 				OBJ_1355 /* UserController.swift in Sources */,
 				OBJ_1356 /* ExpensesController.swift in Sources */,
 				OBJ_1357 /* PostController.swift in Sources */,
+				FF96DE10202FD2F600253560 /* FeaturesViewController.swift in Sources */,
 				OBJ_1358 /* ExpensesViewController.swift in Sources */,
 				OBJ_1359 /* MainViewController.swift in Sources */,
 				OBJ_1360 /* UserViewController.swift in Sources */,
@@ -11528,6 +11535,7 @@
 				OBJ_1367 /* UserRoutes.swift in Sources */,
 				OBJ_1368 /* Config+Setup.swift in Sources */,
 				OBJ_1369 /* Droplet+Setup.swift in Sources */,
+				FF96DE12202FD44F00253560 /* SupportViewController.swift in Sources */,
 				OBJ_1370 /* Emun.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,8 @@
+#extend("base")
+
+#export("title") { FamilyPocket 💰 }
+
+#export("content") {
+    <h1>Support</h1>
+    <h6>This page is currently empty</h6>
+}

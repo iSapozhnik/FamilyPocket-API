@@ -42,6 +42,12 @@ extension Droplet {
         let expensesViewcontroller = ExpensesViewController(self)
         get("expenses", handler: expensesViewcontroller.expenses)
         
+        let featuresViewcontroller = FeaturesViewController(self)
+        get("features", handler: featuresViewcontroller.features)
+
+        let supportViewcontroller = SupportViewController(self)
+        get("support", handler: supportViewcontroller.support)
+        
         get("", handler: MainViewController(self).index)
     
         UserRoutes.setupRoutes(droplet: self, protectedRouter: authed, apiPath: apiPath)
