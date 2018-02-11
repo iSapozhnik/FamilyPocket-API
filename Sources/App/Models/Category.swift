@@ -60,7 +60,7 @@ extension Category: Preparation {
         try Category(name: "Shopping", iconName: "Shopping-Cart-80.png").save()
         try Category(name: "Cell Phone", iconName: "Cell-Phone-80.png").save()
         try Category(name: "Food", iconName: "Ingredients-80.png").save()
-        try Category(name: "Transport", iconName: "Shuttle-80.pn").save()
+        try Category(name: "Transport", iconName: "Shuttle-80.png").save()
         try Category(name: "Restaurants", iconName: "Food-80.png").save()
 
         
@@ -93,7 +93,7 @@ extension Category: JSONConvertible {
         var json = JSON()
         try json.set("id", id)
         try json.set("name",name)
-        try json.set("name",iconName)
+        try json.set("iconName",iconName)
         return json
     }
 }
